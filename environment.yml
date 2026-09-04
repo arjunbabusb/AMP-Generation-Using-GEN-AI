@@ -1,0 +1,29 @@
+name: amp-pipeline
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - pandas
+  - numpy
+  - scikit-learn
+  - matplotlib
+  - biopython
+  - pip:
+      - torch
+      - modlamp
+      - pymoo
+      - requests
+      - umap-learn
+      - pydssp
+
+# This environment covers data curation, classifiers, generative models,
+# and multi-objective optimization (all run locally via Anaconda/Windows
+# or Colab per docs/methodology.md).
+#
+# MD simulation (src/md_simulation/) is intentionally NOT covered here.
+# It requires GROMACS 2025.4, martinize2/vermouth, and insane, run
+# separately in WSL2/Ubuntu — see docs/methodology.md for that toolchain
+# and why it's kept out of this conda env (GROMACS is not a conda/pip
+# package in the version used here).
